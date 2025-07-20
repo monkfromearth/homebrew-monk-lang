@@ -6,20 +6,20 @@ class MonkLang < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/monkfromearth/monk-lang/releases/download/v#{version}/monk-v#{version}-darwin-x64.tar.gz"
-      sha256 "fffc9815fc266965f648b2d0744ce10d32b696b976d3f50b76e5ae505b9d73e2"
+      sha256 "[0;31m[ERROR][0m Could not find SHA256 for monk-v0.0.5-darwin-x64.tar.gz in checksums"
     else
       url "https://github.com/monkfromearth/monk-lang/releases/download/v#{version}/monk-v#{version}-darwin-arm64.tar.gz"
-      sha256 "00ac81ea5d23bf8832db2ac4a0808aa66b4a7680e808942c31a67061580f6a4c"
+      sha256 "[0;31m[ERROR][0m Could not find SHA256 for monk-v0.0.5-darwin-arm64.tar.gz in checksums"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/monkfromearth/monk-lang/releases/download/v#{version}/monk-v#{version}-linux-x64.tar.gz"
-      sha256 "5760244613f71b10101b801c6353a77d0e1d045b8efd798faf7a3f6dc738ef65"
+      sha256 "[0;31m[ERROR][0m Could not find SHA256 for monk-v0.0.5-linux-x64.tar.gz in checksums"
     else
       url "https://github.com/monkfromearth/monk-lang/releases/download/v#{version}/monk-v#{version}-linux-arm64.tar.gz"
-      sha256 "6d22446e61d9127350911d386c39ede2f3021461b216b98f24440322ec7dd089"
+      sha256 "[0;31m[ERROR][0m Could not find SHA256 for monk-v0.0.5-linux-arm64.tar.gz in checksums"
     end
   end
 
@@ -48,27 +48,12 @@ class MonkLang < Formula
       Monk Lang has been installed!
 
       Get started:
-        monk --help          # Show help
-        monk repl            # Start interactive REPL
-        monk run script.monk # Run a Monk script
-
-      Example:
-        echo 'show("Hello, World!")' > hello.monk
-        monk run hello.monk
+        monk repl                    # Start interactive REPL
+        monk run script.monk         # Run a Monk script
+        monk --help                  # View all options
 
       Documentation: https://github.com/monkfromearth/monk-lang
+      Examples: https://github.com/monkfromearth/monk-lang/tree/main/examples
     EOS
   end
-
-  private
-
-  def os
-    if OS.mac?
-      "darwin"
-    elsif OS.linux?
-      "linux"
-    else
-      raise "Unsupported operating system"
-    end
-  end
-end 
+end
