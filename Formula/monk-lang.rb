@@ -26,8 +26,11 @@ class MonkLang < Formula
   license "MIT"
 
   def install
-    # The binary is simply named "monk" in the tarball
-    bin.install "monk"
+    # The binary is named with version, so we install it as "monk"
+    bin.install "monk-v#{version}-darwin-x64" => "monk" if Hardware::CPU.intel? && OS.mac?
+    bin.install "monk-v#{version}-darwin-arm64" => "monk" if Hardware::CPU.arm? && OS.mac?
+    bin.install "monk-v#{version}-linux-x64" => "monk" if Hardware::CPU.intel? && OS.linux?
+    bin.install "monk-v#{version}-linux-arm64" => "monk" if Hardware::CPU.arm? && OS.linux?
   end
 
   test do
